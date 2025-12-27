@@ -750,6 +750,8 @@
         test {\iffieldequalstr{langid}{chinese}}
         or
         test {\iffieldequalstr{langid}{zh}}
+        or
+        test{\iffieldequalstr{langid}{chinese-traditional}}
     }
     {}{\skipentry}%
 }
@@ -760,6 +762,8 @@
         test {\iffieldequalstr{langid}{chinese}}
         or
         test {\iffieldequalstr{langid}{zh}}
+        or
+        test{\iffieldequalstr{langid}{chinese-traditional}}
         )
     }
     {}{\skipentry}%
@@ -792,13 +796,13 @@
 
     % 插入參考文獻
     \ifthenelse{\equal{\thesisSplitRefByLang}{Y}}{
-        \section*{中文部分}
+        \section*{中文文獻}
         \printbibliography[
             check=thesisRefZh,
             heading=none,
         ]
 
-        \section*{外文部分}
+        \section*{外文文獻}
         \printbibliography[
             check=thesisRefOtherLang,
             heading=none,
