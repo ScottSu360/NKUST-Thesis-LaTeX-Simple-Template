@@ -106,8 +106,11 @@
 \input{chapters/chapter05.tex}
 
 % 參考文獻
-\thesisMakeReference
-% \input{back/references.tex}
+\ifthenelse{\equal{\thesisAddRefByManual}{Y}}{
+    \input{back/references.tex}
+}{
+    \thesisMakeReference
+}
 
 % 附錄
 \thesisAppendixMatter
