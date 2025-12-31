@@ -744,6 +744,13 @@
 % biblatex 加入參考文獻檔案位置
 \addbibresource{\thesisRefBIB}
 
+% biblatex 第一次引用時顯示全名
+\AtEveryCitekey{%
+    \ifciteseen
+    {}
+    {\defcounter{maxnames}{99}} % 第一次引用時不限制作者數量（可選）
+}
+
 % 設定中外文參考文獻篩選標準
 \defbibcheck{thesisRefZh}{%
     \ifboolexpr{
