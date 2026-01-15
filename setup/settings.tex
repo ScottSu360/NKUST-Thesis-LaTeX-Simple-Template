@@ -124,15 +124,18 @@
                 \vspace{5mm}
                 \fontsize{26pt}{0pt}{\thesisDeptNameZHTW 系}\\
                 \vspace{5mm}
-                \fontsize{24pt}{0pt}{\thesisDegreeZHTW 論文}\\
                 \ifthenelse{\equal{\thesisIsDraft}{Y}}{
-                    \vspace{5mm}
-                    \fontsize{16pt}{0pt}{初稿(Draft)}\\
-                }{}
+                    \fontsize{24pt}{0pt}{\thesisDegreeZHTW 論文初稿}
+                }{
+                    \fontsize{24pt}{0pt}{\thesisDegreeZHTW 論文}
+                }\\
                 \vspace{30mm}
 
                 % 題目
+                \setstretch{1.5}\selectfont % 暫時將中文題目設為 1.5 倍行高
                 \fontsize{20pt}{0pt}{\thesisTitleZHTW}\\
+                \par
+                \setstretch{1}\selectfont
                 \vspace{5mm}
                 \fontsize{20pt}{0pt}{\thesisTitleEN}\\
                 \vspace{25mm}
@@ -172,7 +175,10 @@
                 \vspace*{5mm}
 
                 % 中英標題
+                \setstretch{1.5}\selectfont % 暫時將中文題目設為 1.5 倍行高
                 \fontsize{16pt}{0pt}{\thesisTitleZHTW}\\
+                \par
+                \setstretch{1}\selectfont
                 \vspace{5mm}
                 \fontsize{14pt}{0pt}{\thesisTitleEN}\\
                 \vspace{10mm}
@@ -199,9 +205,9 @@
                 % 校系論文
                 \fontsize{14pt}{0pt}{
                     \thesisSchoolNameZHTW\\
-                    \vspace{5mm}
-                    \thesisClassNameZHTW\\
-                    \vspace{5mm}
+                    \vspace{2mm}
+                    \thesisDeptNameZHTW 系\\
+                    \vspace{2mm}
                     \thesisDegreeZHTW 論文\\
                 }
                 \vspace{10mm}
@@ -458,6 +464,7 @@
     \addcontentsline{toc}{chapter}{\thesisTableOfContentsTitle}
 
     \tableofcontents
+
     \newpage
 }
 
@@ -472,6 +479,7 @@
     \renewcommand{\addvspace}[1]{} % 暫時讓 addvspace 指令失效
 
     \listoftables
+
     \newpage
 }
 
@@ -671,7 +679,6 @@
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 
-
 % graphicx 根目錄設定
 \graphicspath{{\thesisFiguresPath}}
 
@@ -753,7 +760,7 @@
 \AtEveryCitekey{%
     \ifciteseen
     {}%
-    {\defcounter{maxnames}{99}} % 第一次引用時不限制作者數量（可選）
+    {\defcounter{maxnames}{99}}% 第一次引用時不限制作者數量（可選）
 }
 
 % 設定中外文參考文獻篩選標準
@@ -814,7 +821,7 @@
             heading=none,
         ]
 
-        \section*{外文文獻}
+        \section*{英文文獻}
         \printbibliography[
             check=thesisRefOtherLang,
             heading=none,
