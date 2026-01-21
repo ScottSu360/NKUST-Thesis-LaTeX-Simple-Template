@@ -246,7 +246,7 @@
 % 中文摘要環境
 \newenvironment{thesisAbstractEnvZHTW}{
     \phantomsection % 目錄超連結錨點
-    \addcontentsline{toc}{chapter}{\thesisAbstractTitleZHTW}  % 加入目錄    
+    \addcontentsline{toc}{chapter}{\thesisAbstractTitleZHTW}  % 加入目錄
 
     {\setstretch{1.0} \chapter*{\thesisTitleZHTW}} % 暫時修改題目行高
     \vspace{5mm}
@@ -417,6 +417,9 @@
 
 \renewcommand{\contentsname}{\centerline{\thesisTableOfContentsTitle}} % 設定目錄標題
 
+% 抵銷目次標題上方的額外間距
+\setlength{\cftbeforetoctitleskip}{-50pt}
+
 \titlecontents{chapter}[0em]
 {}
 {\thesisChapterTitleTocFormat} % 須改中英顯示間距於 config
@@ -431,6 +434,10 @@
 % 設定圖表目綠取消章間間距
 \setlength{\cftbeforefigskip}{0pt} % 圖目錄章間間距
 \setlength{\cftbeforetabskip}{0pt} % 表目錄章間間距
+
+% 消除圖表目次標題上方的額外間距
+\setlength{\cftbeforeloftitleskip}{-50pt}
+\setlength{\cftbeforelottitleskip}{-50pt}
 
 % 設定表目錄樣式
 \renewcommand{\listtablename}{\centerline{\thesisListOfTablesTitle}} % 設定表目錄頁標題
@@ -457,7 +464,6 @@
 
 % 製作目錄指令
 \newcommand{\thesisMakeTableOfContents}{
-    \clearpage % 需改
 
     % 加入目錄與目錄超連結
     \phantomsection
@@ -470,7 +476,6 @@
 
 % 製作表目錄指令
 \newcommand{\thesisMakeListOfTables}{
-    \clearpage % 需改
 
     % 加入目錄與目錄超連結
     \phantomsection
@@ -485,7 +490,6 @@
 
 % 製作圖目錄指令
 \newcommand{\thesisMakeListOfFigures}{
-    \clearpage % 需改
 
     % 加入目錄與目錄超連結
     \phantomsection
@@ -674,10 +678,6 @@
 
 % 縮小表格間距 
 \setlength{\tabcolsep}{1.5pt}
-
-% 新增兩種動態欄位
-\newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 
 % graphicx 根目錄設定
 \graphicspath{{\thesisFiguresPath}}
