@@ -60,14 +60,14 @@
 % 若是初稿則不加入這些文件
 \ifthenelse{\equal{\thesisIsDraft}{N}}{
 
-    % 博碩士論文著作權授權書
-    \ifthenelse{\not\equal{\thesisDegreeType}{BA}}{
-        \includepdf[width=1.0\textwidth]{\thesisPowerOfAttorneyPDF}
-    }{}
-
-    % 審定書
+    % 學位考試審定書
     \ifthenelse{\not\equal{\thesisDegreeType}{BA}}{
         \includepdf[width=1.0\textwidth]{\thesisOralExamApprovalPDF}
+    }{}
+
+    % 博碩士論文著作權歸屬協議書
+    \ifthenelse{\not\equal{\thesisDegreeType}{BA}}{
+        \includepdf[width=1.0\textwidth]{\thesisPowerOfAttorneyPDF}
     }{}
 
     % 博士論文推薦書(僅博士需要，推薦書檔案路徑需於 congig 設定)
