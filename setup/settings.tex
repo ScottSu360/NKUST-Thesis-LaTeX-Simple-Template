@@ -245,8 +245,8 @@
 
 % 中文摘要環境
 \newenvironment{thesisAbstractEnvZHTW}{
-    \phantomsection % 目錄超連結錨點
-    \addcontentsline{toc}{chapter}{\thesisAbstractTitleZHTW}  % 加入目錄
+    \phantomsection % 目次超連結錨點
+    \addcontentsline{toc}{chapter}{\thesisAbstractTitleZHTW}  % 加入目次
 
     {\setstretch{1.0} \chapter*{\thesisTitleZHTW}} % 暫時修改題目行高
     \vspace{5mm}
@@ -308,8 +308,8 @@
 
 % 英文摘要環境
 \newenvironment{thesisAbstractEnvEN}{
-    \phantomsection % 目錄超連結錨點
-    \addcontentsline{toc}{chapter}{\thesisAbstractTitleEN} % 加入目錄
+    \phantomsection % 目次超連結錨點
+    \addcontentsline{toc}{chapter}{\thesisAbstractTitleEN} % 加入目次
 
     {\setstretch{1.0} \chapter*{\thesisTitleEN}} % 暫時修改題目行高
     \vspace{5mm}
@@ -370,16 +370,16 @@
 \newcommand{\thesisAddAcknowledgement}{
     \chapter*{\thesisAcknowledgementTitle}
 
-    \phantomsection % 目錄超連結錨點
-    \addcontentsline{toc}{chapter}{\thesisAcknowledgementTitle} % 加入目錄
+    \phantomsection % 目次超連結錨點
+    \addcontentsline{toc}{chapter}{\thesisAcknowledgementTitle} % 加入目次
 }
 
 % 符號說明表環境
 \newenvironment{thesisDenotationEnv}[1][2.5cm]{
     \chapter*{\thesisDenotationTitle}
 
-    \phantomsection % 目錄超連結錨點
-    \addcontentsline{toc}{chapter}{\thesisDenotationTitle} % 加入目錄
+    \phantomsection % 目次超連結錨點
+    \addcontentsline{toc}{chapter}{\thesisDenotationTitle} % 加入目次
 
     \begin{list}{}{
             \renewcommand\makelabel[1]{##1\hfill}
@@ -399,9 +399,9 @@
 }
 
 % --------------------------------------------------
-% 目錄設定
+% 目次設定
 % --------------------------------------------------
-% 載入套件 titletoc 設定目錄格式
+% 載入套件 titletoc 設定目次格式
 % \titlecontents{標題名稱}[左間距]
 % {標題格式}
 % {標題內容}
@@ -410,15 +410,13 @@
 % [下間距]
 % --------------------------------------------------
 
-% 設定目錄樣式
+% 設定目次標題樣式
+\renewcommand{\contentsname}{\centerline{\normalfont\thesisTableOfContentsTitle}} % 設定目次標題名
+\setlength{\cftbeforetoctitleskip}{-50pt} % 抵銷目次標題上方的額外間距
 
-\setcounter{tocdepth}{2} % 設定目錄深度至 2 => 子節
+% 設定目次樣式
+\setcounter{tocdepth}{2} % 設定目次深度至 2 => 子節
 \setcounter{secnumdepth}{2} % 設定編號深度 2 => 子節
-
-\renewcommand{\contentsname}{\centerline{\thesisTableOfContentsTitle}} % 設定目錄標題
-
-% 抵銷目次標題上方的額外間距
-\setlength{\cftbeforetoctitleskip}{-50pt}
 
 \titlecontents{chapter}[0em]
 {}
@@ -427,22 +425,17 @@
 {\titlerule*[0.5pc]{.}\contentspage}
 {}
 
-% 設定節目錄樣式 (保留)
+% 設定節目次樣式 (保留)
 
-% 設定子節目錄樣式 (保留)
+% 設定子節目次樣式 (保留)
 
-% 設定圖表目綠取消章間間距
-\setlength{\cftbeforefigskip}{0pt} % 圖目錄章間間距
-\setlength{\cftbeforetabskip}{0pt} % 表目錄章間間距
+%　設定表目次標題
+\renewcommand{\listtablename}{\centerline{\normalfont\thesisListOfTablesTitle}} % 設定表目次標題名
+\setlength{\cftbeforelottitleskip}{-50pt} % 消除表目次標題上方的額外間距
 
-% 消除圖表目次標題上方的額外間距
-\setlength{\cftbeforeloftitleskip}{-50pt}
-\setlength{\cftbeforelottitleskip}{-50pt}
-
-% 設定表目錄樣式
-\renewcommand{\listtablename}{\centerline{\thesisListOfTablesTitle}} % 設定表目錄頁標題
-
-\renewcommand{\tablename}{\thesisTableName} % 設定表目錄頁標號，如 表 1, 表 2 .... 
+% 設定表目次樣式
+\setlength{\cftbeforetabskip}{0pt} % 消除表目次章間間距
+\renewcommand{\tablename}{\thesisTableName} % 設定表目次頁標號，如 表 1, 表 2 .... 
 
 \titlecontents{table}[0em]
 {\tablename~\thecontentslabel~}
@@ -451,9 +444,13 @@
 {\titlerule*[0.5pc]{.}\contentspage}
 {}
 
-% 設定圖目錄樣式
-\renewcommand{\listfigurename}{\centerline{\thesisListOfFiguresTitle}} % 設定圖目錄頁標題
-\renewcommand{\figurename}{\thesisFigureName} % 設定圖目錄頁標號，如 圖 1, 圖 2 ....
+% 設定圖目次標題
+\renewcommand{\listfigurename}{\centerline{\normalfont\thesisListOfFiguresTitle}} % 設定圖目次標題名
+\setlength{\cftbeforeloftitleskip}{-50pt} % 消除圖目次標題上方的額外間距
+
+% 設定圖目次樣式
+\setlength{\cftbeforefigskip}{0pt} % 消除圖目次章間間距
+\renewcommand{\figurename}{\thesisFigureName} % 設定圖目次頁標號，如 圖 1, 圖 2 ....
 
 \titlecontents{figure}[0em]
 {\figurename~\thecontentslabel~}
@@ -462,10 +459,10 @@
 {\titlerule*[0.5pc]{.}\contentspage}
 {}
 
-% 製作目錄指令
+% 製作目次指令
 \newcommand{\thesisMakeTableOfContents}{
 
-    % 加入目錄與目錄超連結
+    % 加入目次與目次超連結
     \phantomsection
     \addcontentsline{toc}{chapter}{\thesisTableOfContentsTitle}
 
@@ -474,10 +471,10 @@
     \newpage
 }
 
-% 製作表目錄指令
+% 製作表目次指令
 \newcommand{\thesisMakeListOfTables}{
 
-    % 加入目錄與目錄超連結
+    % 加入目次與目次超連結
     \phantomsection
     \addcontentsline{toc}{chapter}{\thesisListOfTablesTitle}
 
@@ -488,10 +485,10 @@
     \newpage
 }
 
-% 製作圖目錄指令
+% 製作圖目次指令
 \newcommand{\thesisMakeListOfFigures}{
 
-    % 加入目錄與目錄超連結
+    % 加入目次與目次超連結
     \phantomsection
     \addcontentsline{toc}{chapter}{\thesisListOfFiguresTitle}
 
@@ -592,7 +589,7 @@
 }
 
 \newcommand{\thesisAppendixMatter}{
-    % 使用此指令明確宣告，避免目錄超連結混亂
+    % 使用此指令明確宣告，避免目次超連結混亂
     \appendix
 
     % 重設章節計數器
@@ -604,7 +601,7 @@
     % 將附錄節編號設回數字
     \renewcommand{\thesection}{\thesisAppendixSectionTitleNumbering{chapter}{section}}
 
-    % 重設章目錄樣式
+    % 重設章目次樣式
     \titlecontents{chapter}[0em]
     {}
     {\thesisAppendixTitleTocFormat} % 須改中英間距於 config
@@ -679,7 +676,7 @@
 % 縮小表格間距 
 \setlength{\tabcolsep}{1.5pt}
 
-% graphicx 根目錄設定
+% graphicx 根目次設定
 \graphicspath{{\thesisFiguresPath}}
 
 % pgfplots 初始設定
@@ -810,8 +807,8 @@
 
     \chapter*{\thesisBibliographyTitle}
 
-    \phantomsection % 目錄超連結錨點
-    \addcontentsline{toc}{chapter}{\thesisBibliographyTitle} % 加入目錄
+    \phantomsection % 目次超連結錨點
+    \addcontentsline{toc}{chapter}{\thesisBibliographyTitle} % 加入目次
 
     % 插入參考文獻
     \ifthenelse{\equal{\thesisSplitRefByLang}{Y}}{
