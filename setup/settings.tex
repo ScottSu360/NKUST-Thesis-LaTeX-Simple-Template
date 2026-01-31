@@ -91,10 +91,10 @@
 % geometry 初始版面設定
 \geometry{
     paper=a4paper,
-    includehead, % 將 headheight headsep 計入 top
-    headheight=2cm,
-    headsep=1cm,
-    top=1cm,
+    % includehead=false, % 將 headheight headsep 計入 top
+    % headheight=1cm,
+    % headsep=1cm,
+    top=3cm,
     includefoot,
     bottom=3cm,
     left=3cm,
@@ -412,7 +412,7 @@
 
 % 設定目次標題樣式
 \renewcommand{\contentsname}{\centerline{\normalfont\thesisTableOfContentsTitle}} % 設定目次標題名
-\setlength{\cftbeforetoctitleskip}{-50pt} % 抵銷目次標題上方的額外間距
+\setlength{\cftbeforetoctitleskip}{0pt} % 抵銷目次標題上方的額外間距
 
 % 設定目次樣式
 \setcounter{tocdepth}{2} % 設定目次深度至 2 => 子節
@@ -431,7 +431,7 @@
 
 %　設定表目次標題
 \renewcommand{\listtablename}{\centerline{\normalfont\thesisListOfTablesTitle}} % 設定表目次標題名
-\setlength{\cftbeforelottitleskip}{-50pt} % 消除表目次標題上方的額外間距
+\setlength{\cftbeforelottitleskip}{0pt} % 消除表目次標題上方的額外間距
 
 % 設定表目次樣式
 \setlength{\cftbeforetabskip}{0pt} % 消除表目次章間間距
@@ -446,7 +446,7 @@
 
 % 設定圖目次標題
 \renewcommand{\listfigurename}{\centerline{\normalfont\thesisListOfFiguresTitle}} % 設定圖目次標題名
-\setlength{\cftbeforeloftitleskip}{-50pt} % 消除圖目次標題上方的額外間距
+\setlength{\cftbeforeloftitleskip}{0pt} % 消除圖目次標題上方的額外間距
 
 % 設定圖目次樣式
 \setlength{\cftbeforefigskip}{0pt} % 消除圖目次章間間距
@@ -521,7 +521,7 @@
 % - left: 標題左邊的缩排
 % - before-sep: 標題上方的空白間距
 % - after-sep: 標題下方的空白間距
-% - right（可選）: 標題右邊的缩排（一般很少用）。
+% - right（可選）: 標題右邊的縮排（一般很少用）。
 % --------------------------------------------------
 
 % 設定章標題編號方式
