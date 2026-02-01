@@ -94,7 +94,7 @@
     % includehead=false, % 將 headheight headsep 計入 top
     % headheight=1cm,
     % headsep=1cm,
-    top=3cm,
+    top=4cm,
     includefoot,
     bottom=3cm,
     left=3cm,
@@ -412,7 +412,7 @@
 
 % 設定目次標題樣式
 \renewcommand{\contentsname}{\centerline{\normalfont\thesisTableOfContentsTitle}} % 設定目次標題名
-\setlength{\cftbeforetoctitleskip}{0pt} % 抵銷目次標題上方的額外間距
+\setlength{\cftbeforetoctitleskip}{-1cm} % 抵銷目次標題上方的額外間距
 
 % 設定目次樣式
 \setcounter{tocdepth}{2} % 設定目次深度至 2 => 子節
@@ -431,7 +431,7 @@
 
 %　設定表目次標題
 \renewcommand{\listtablename}{\centerline{\normalfont\thesisListOfTablesTitle}} % 設定表目次標題名
-\setlength{\cftbeforelottitleskip}{0pt} % 消除表目次標題上方的額外間距
+\setlength{\cftbeforelottitleskip}{-1cm} % 消除表目次標題上方的額外間距
 
 % 設定表目次樣式
 \setlength{\cftbeforetabskip}{0pt} % 消除表目次章間間距
@@ -446,7 +446,7 @@
 
 % 設定圖目次標題
 \renewcommand{\listfigurename}{\centerline{\normalfont\thesisListOfFiguresTitle}} % 設定圖目次標題名
-\setlength{\cftbeforeloftitleskip}{0pt} % 消除圖目次標題上方的額外間距
+\setlength{\cftbeforeloftitleskip}{-1cm} % 消除圖目次標題上方的額外間距
 
 % 設定圖目次樣式
 \setlength{\cftbeforefigskip}{0pt} % 消除圖目次章間間距
@@ -534,7 +534,7 @@
 {\thesisTitleGapSize}
 {}
 
-\titlespacing*{\chapter}{0pt}{0pt}{12pt} % 設定章標題下方留空一行
+\titlespacing*{\chapter}{0pt}{-1cm}{12pt} % 設定章標題下方留空一行
 
 % 設定節標題編號方式
 \renewcommand{\thesection}{\thesisSectionTitleNumbering{chapter}{section}}
