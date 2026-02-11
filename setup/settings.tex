@@ -245,125 +245,133 @@
 
 % 中文摘要環境
 \newenvironment{thesisAbstractEnvZHTW}{
-    \phantomsection % 目次超連結錨點
-    \addcontentsline{toc}{chapter}{\thesisAbstractTitleZHTW}  % 加入目次
+\phantomsection % 目次超連結錨點
+\addcontentsline{toc}{chapter}{\thesisAbstractTitleZHTW}  % 加入目次
 
-    {\setstretch{1.0} \chapter*{\thesisTitleZHTW}} % 暫時修改題目行高
+\begin{center}
+    \Large
+    \setstretch{1.0}
+    \thesisTitleZHTW
+\end{center}
+
+% 指導教授與研究生
+{\centering
+\begin{minipage}[t]{0.5\textwidth}
+    \begin{flushleft}
+        {\large 研究生：\thesisAuthorNameZHTW}
+    \end{flushleft}
+\end{minipage}% 要加這個不然不會並排
+\begin{minipage}[t]{0.5\textwidth}
+    \begin{flushright}
+        \def\arraystretch{1} % 設定列高為 1 倍讓兩邊對齊
+        \begin{tabular}[t]{l@{}l@{}}
+            {\large 指導教授：} & {\large \thesisAdvisorNameZHTW~博士}
+            \ifthenelse{\equal{\thesisHasCoAdvisor}{Y}}{
+            \\[2mm]
+                           & {\large \thesisCoAdvisorNameZHTW~博士} \\
+            }{}
+        \end{tabular}
+    \end{flushright}
+\end{minipage}
+\par
+}
+
+\vspace{2mm}
+
+% 校與班名
+{\centering
+    {\large \thesisSchoolNameZHTW \thesisClassNameZHTW}\\
+
+    \vspace{2mm}
+
+    {\large \thesisAbstractTitleZHTW}\\
+
     % \vspace{5mm}
-
-    % 指導教授與研究生
-    \begin{center}
-        \begin{minipage}[t]{0.5\textwidth}
-            \begin{flushleft}
-                {\Large 研究生：\thesisAuthorNameZHTW}
-            \end{flushleft}
-        \end{minipage}% 要加這個不然不會並排
-        \begin{minipage}[t]{0.5\textwidth}
-            \begin{flushright}
-                \def\arraystretch{1} % 設定列高為 1 倍讓兩邊對齊
-                \begin{tabular}[t]{l@{}l@{}}
-                    {\Large 指導教授：} & {\Large \thesisAdvisorNameZHTW~博士}
-                    \ifthenelse{\equal{\thesisHasCoAdvisor}{Y}}{
-                    \\[5mm]
-                                   & {\Large \thesisCoAdvisorNameZHTW~博士} \\
-                    }{}
-                \end{tabular}
-            \end{flushright}
-        \end{minipage}
-    \end{center}
-
-    % \vspace{5mm}
-
-    % 校與班名
-    \begin{center}
-        {\Large \thesisSchoolNameZHTW \thesisClassNameZHTW}\\
-
-        \vspace{5mm}
-
-        {\Large \thesisAbstractTitleZHTW}\\
-
-        % \vspace{5mm}
-    \end{center}
 
     \par
+}
 }{
-    % 需先分段 vspace 才能生效
-    \par\vspace{10mm}
+% 需先分段 vspace 才能生效
+\par\vspace{2mm}
 
-    % 印出中文關鍵字
-    % \noindent 取消因 \par 產生的縮排
-    % 加 % 消除 foreach 後空格
-    \noindent{\thesisKeywordsTagZHTW
-        \foreach \keyword [count=\i] in \thesisKeywordsZHTW {%
-            \ifnum\i=1% 
-                \keyword%
-            \else%
-                \thesisKeywordsSymbolZHTW\keyword%
-            \fi%
-        }
+% 印出中文關鍵字
+% \noindent 取消因 \par 產生的縮排
+% 加 % 消除 foreach 後空格
+\noindent{\thesisKeywordsTagZHTW
+    \foreach \keyword [count=\i] in \thesisKeywordsZHTW {%
+        \ifnum\i=1% 
+            \keyword%
+        \else%
+            \thesisKeywordsSymbolZHTW\keyword%
+        \fi%
     }
+}
 
-    \newpage
+\newpage
 }
 
 % 英文摘要環境
 \newenvironment{thesisAbstractEnvEN}{
-    \phantomsection % 目次超連結錨點
-    \addcontentsline{toc}{chapter}{\thesisAbstractTitleEN} % 加入目次
+\phantomsection % 目次超連結錨點
+\addcontentsline{toc}{chapter}{\thesisAbstractTitleEN} % 加入目次
 
-    {\setstretch{1.0} \chapter*{\thesisTitleEN}} % 暫時修改題目行高
-    % \vspace{5mm}
+\begin{center}
+    \large
+    \setstretch{1.0}
+    \thesisTitleEN
+\end{center}
 
-    % 指導教授與研究生
-    \begin{center}
-        \begin{minipage}[t]{0.4\textwidth}
-            \begin{flushleft}
-                {\large Student:~\thesisAuthorNameEN}
-            \end{flushleft}
-        \end{minipage}% 要加這個不然不會並排
-        \begin{minipage}[t]{0.6\textwidth}
-            \begin{flushright}
-                \def\arraystretch{1} % 設定列高為 1 倍讓兩邊對齊
-                \begin{tabular}[t]{l@{}l@{}}
-                    {\large Advisor:} & {\large ~Dr.~\thesisAdvisorNameEN}
-                    \ifthenelse{\equal{\thesisHasCoAdvisor}{Y}}{
-                    \\[5mm]
-                                      & {\large ~Dr.~\thesisCoAdvisorNameEN} \\
-                    }{}
-                \end{tabular}
-            \end{flushright}
-        \end{minipage}
-    \end{center}
+{\centering
+% 指導教授與研究生
+\begin{minipage}[t]{0.4\textwidth}
+    \begin{flushleft}
+        {\large Student:~\thesisAuthorNameEN}
+    \end{flushleft}
+\end{minipage}% 要加這個不然不會並排
+\begin{minipage}[t]{0.6\textwidth}
+    \begin{flushright}
+        \def\arraystretch{1} % 設定列高為 1 倍讓兩邊對齊
+        \begin{tabular}[t]{l@{}l@{}}
+            {\large Advisor:} & {\large ~Dr.~\thesisAdvisorNameEN}
+            \ifthenelse{\equal{\thesisHasCoAdvisor}{Y}}{
+            \\[2mm]
+                              & {\large ~Dr.~\thesisCoAdvisorNameEN} \\
+            }{}
+        \end{tabular}
+    \end{flushright}
+\end{minipage}
+\par
+}
 
-    % \vspace{5mm}
+\vspace{2mm}
 
-    % 校與班名
-    \begin{center}
-        {\large \thesisClassNameEN\\
-            \thesisSchoolNameEN}\\
-        \vspace{5mm}
-        {\Large \thesisAbstractTitleEN}\\
-        % \vspace{5mm}
-    \end{center}
+% 校與班名
+{\centering
+    {\large \thesisClassNameEN\\ \thesisSchoolNameEN}\\
 
+    \vspace{2mm}
+
+    {\large \thesisAbstractTitleEN}\\
     \par
-}{
-    % 需先分段 vspace 才能生效
-    \par\vspace{10mm}
+}
 
-    % 印出英文關鍵字
-    % \noindent 取消因 \par 產生的縮排
-    % 加 % 消除 foreach 後空格
-    \noindent{\thesisKeywordsTagEN
-        \foreach \keyword [count=\i] in \thesisKeywordsEN {%
-            \ifnum\i=1%
-                \keyword%
-            \else%
-                \thesisKeywordsSymbolEN~\keyword%
-            \fi%
-        }
+}{
+% 需先分段 vspace 才能生效
+\par\vspace{2mm}
+
+% 印出英文關鍵字
+% \noindent 取消因 \par 產生的縮排
+% 加 % 消除 foreach 後空格
+\noindent{\thesisKeywordsTagEN
+    \foreach \keyword [count=\i] in \thesisKeywordsEN {%
+        \ifnum\i=1%
+            \keyword%
+        \else%
+            \thesisKeywordsSymbolEN~\keyword%
+        \fi%
     }
-    \newpage
+}
+\newpage
 }
 
 % 致謝指令
@@ -753,7 +761,7 @@
 % biblatex 加入參考文獻檔案位置
 \addbibresource{\thesisRefBIB}
 
-% biblatex 第一次引用時顯示全名
+biblatex 第一次引用時顯示全名
 \AtEveryCitekey{%
     \ifciteseen
     {}%
