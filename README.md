@@ -12,32 +12,28 @@ C:.
 |   main.pdf
 |   main.tex
 |   README.md
-|   
 +---.git # 內容省略
 +---back # 後頁內容
 |       appendix01.tex # 範例用可刪除
 |       appendix02.tex # 範例用可刪除
 |       references.bib
-|       
+|       references.tex # 自行繕打參考文獻使用
 +---chapters # 章節內文內容
 |       chapter01.tex
 |       chapter02.tex
 |       chapter03.tex
 |       chapter04.tex
 |       chapter05.tex
-|       
 +---figures # 圖片放置位置
 |   \---seal # 高科大校徽
 |           seal_golden.png # 金色版
 |           seal_standard.png # 彩色版
-|           
 +---fonts # 字體位置
 |   +---en 
 |   |       Times New Roman-Bold.ttf # Times New Roman font Family from Hsins
 |   |       Times New Roman-BoldItalic.ttf
 |   |       Times New Roman-Italic.ttf
 |   |       Times New Roman.ttf
-|   |       
 |   \---zhtw
 |           BiauKai.ttf # 標楷體 from Hsins
 |           edukai-4.0.license
@@ -50,9 +46,8 @@ C:.
 |       abstract_zhtw.tex
 |       aknowlegement.tex
 |       denotation.tex
-|       oral_exam_approval.pdf # 口試審定書
-|       power_of_attorney.pdf # 論文授權書
-|       
+|       oral_exam_approval.pdf # 口試審定書示意
+|       power_of_attorney.pdf # 論文著作權協議書示意
 \---setup # 所有專案設定
         config.tex
         pakeges.tex
@@ -83,27 +78,15 @@ C:.
 - LaTeX 編譯器：[MikTeX](https://miktex.org/)
 - LaTeX 發行版：XeLaTeX
 - LaTeX 文獻管理套件：BibLaTeX(Biber)
-- 編輯器環境：
-  - [Visual Studio Code](https://code.visualstudio.com/)
-  - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
-  - [Strawberry Perl](https://strawberryperl.com/)：配合 MikTex 編譯所需
+- 編輯環境：[Visual Studio Code](https://code.visualstudio.com/)、[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)、[Strawberry Perl](https://strawberryperl.com/) (配合 MikTex 編譯所需)
 
 #### 安裝編譯器
 
 以下列出各作業系統可用的編譯器以供參考。
 
-- Windows
-  - [MikTeX](https://miktex.org/)：本專案推薦
-  - [TeXlive](https://www.tug.org/texlive/)
-
-- Mac
-  - [MacTeX](https://www.tug.org/mactex/)
-  - [MikTeX](https://miktex.org/)
-  - [TeXlive](https://www.tug.org/texlive/)
-
-- Linux
-  - [MikTeX](https://miktex.org/)
-  - [TeXlive](https://www.tug.org/texlive/)
+- Windows: [MikTeX](https://miktex.org/) (本專案推薦)、[TeXlive](https://www.tug.org/texlive/)
+- Mac: [MacTeX](https://www.tug.org/mactex/)、[MikTeX](https://miktex.org/)、[TeXlive](https://www.tug.org/texlive/)
+- Linux: [MikTeX](https://miktex.org/)、[TeXlive](https://www.tug.org/texlive/)
 
 ### XeLaTeX + BibLaTeX 編譯指令設定
 
@@ -263,16 +246,28 @@ C:.
 ### 本專案 `setup/config.tex` 中論文必要資訊與選項調整
 
 - 詳細請見 `setup/config.tex` 檔案中註解
-- 需要調整部份主要為：論文內容選項、論文基本資訊、語言變數
-- 論文內容選項：
-  - 本專案已將大部分需調整的內容置於註解，僅需解開需要的即可
-  - 需注意區分中英文獻選項，若需使用這個，則必須確定您的參考文獻 bib 皆需要有 `langid` 欄位，且中文文獻在此欄位必須有 `zh` 或 `chinese` 值
+
+#### 選項部分較須注意的為
+
+- 本專案已將大部分需調整的內容置於註解，僅需解開需要的即可
+- 是否有符號說明表： 需自行在 `front/denotation.tex` 中繕打符號說明
+- 論文是否為初稿：將會在封面加註論文初稿，且不會加入審定書、授權書、及誌謝
+- 是否用手動方式產生文獻：若不使用，需自行在 `back/references.tex` 中繕打參考文獻，且「是否區分中英文獻」與、「是否區分中英文獻」將不會生效
+- 是否區分中英文獻：如欲使用，則須確實設定 `back/references.bib` 中每個中文文獻的 langid 必須設定為  `zh`、`chinese`、`chinese-traditional` 中三選一
+
+#### 其餘必要資訊部分
+
 - 論文基本資訊：為研究生、指導教授、學校等基本資訊
 - 語言變數：本專案預設使用中文，若使用英文撰寫論文，則需將中文部份註解，並將英文部份解開註解
 
+## 其餘說明
+
+- 針對如 tabularx 與 xltabular 的動態表格環境，本專案另自訂了 L、R 兩種動態欄位於 `main.tex`
+- 本專案自行設定的指令與環境，皆使用小駝峰命名法，以 `thesis` 開頭
+
 ## 本專案仍可改進之處
 
-1. 參考文獻格式使用 APA，未如學校格式加上方框標號
+1. 自動編譯的參考文獻格式使用 APA，但未如學校公告格式加上方框標號
 2. 參考文獻中文標點符號未轉全形
 
 ## 鳴謝
