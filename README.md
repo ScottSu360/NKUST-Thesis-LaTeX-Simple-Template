@@ -250,10 +250,10 @@ C:.
 #### 選項部分較須注意的為
 
 - 本專案已將大部分需調整的內容置於註解，僅需解開需要的即可
-- 是否有符號說明表： 需自行在 `front/denotation.tex` 中繕打符號說明
+- 是否有符號說明表：需自行在 `front/denotation.tex` 中繕打符號說明
 - 論文是否為初稿：將會在封面加註論文初稿，且不會加入審定書、授權書、及誌謝
-- 是否用手動方式產生文獻：若不使用，需自行在 `back/references.tex` 中繕打參考文獻，且「是否區分中英文獻」與、「是否區分中英文獻」將不會生效
-- 是否區分中英文獻：如欲使用，則須確實設定 `back/references.bib` 中每個中文文獻的 langid 必須設定為  `zh`、`chinese`、`chinese-traditional` 中三選一
+- 是否用手動方式產生文獻：若不使用，需自行在 `back/references.tex` 中繕打參考文獻，且「是否區分中英文獻」選項將不會生效
+- 是否區分中英文獻：如欲使用，則須確實設定 `back/references.bib` 中每個中文文獻的 langid 必須設定為  `zh`、`chinese`、`chinese-traditional` 中三選一，不可重複
 
 #### 其餘必要資訊部分
 
